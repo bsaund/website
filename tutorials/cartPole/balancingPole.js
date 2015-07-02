@@ -26,30 +26,7 @@ function stringPad(str, length){
     return newstr;
 }
 
-cart.kp = 0;
-cart.kd = 0;
 
-cart.timeStep= function(dt) {
-    //console.log(document.getElementById("pauseControllerButton"));
-    if(toggles.pauseController){
-        return;
-    }
-
-    var newState = RungeKutta4Step([this.x, this.dx], dt, this.control.bind(this));
-
-    this.setX(newState[0]);
-    this.dx = newState[1];
-    poleMass.updateCartPos();
-};
-
-cart.control= function(state){
-    var theta = poleMass.theta;
-
-    if(Math.abs(theta) > (Math.PI/4)){
-        return([this.dx, -5*this.dx]);
-    }
-    return([this.dx, -poleMass.theta*this.kp*1000 - this.kd*this.dx]);
-};
 
 var sliderKp = new Slider([160, 300], [0, 100], "kpRail", "#kpCircle", "#kpLabel",1);
 sliderKp.onRedraw = function() {
@@ -82,6 +59,10 @@ var toggles = {
         pauseButton.onmouseup = function() {toggles.pauseController = false};
         pauseButton.onmouseout = function() {toggles.pauseController = false};
     }
+}
+
+function disturb(){
+    poleMass.dx += 100*(Math.random()+ 1) * (Math.random() > 0.5 ? 1 : -1);
 }
 
 toggles.setPauseButtonHandlers();

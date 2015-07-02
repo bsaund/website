@@ -47,7 +47,7 @@
         <div align="center">
             <svg id="panelPtMass" style="width: 800px; height: 400px;">
                 <circle id="poleMass" class="circle" r="8" z-index="-1" />
-                <rect id="cart" class="handle" class="circle" width="50" height="20" />
+                <rect id="cart" class="cart" class="circle" width="50" height="20" />
                 <line id="pole" class="line" x1="0" y1="0" x2="200" y2="200" style="stroke:rgb(0,0,0);stroke-width:4" />
             </svg>
             <br>
@@ -78,10 +78,12 @@
         <br>
         <br>
         <button id="pauseControllerButton" type="button">Pause Controller</button>
+        <button type="button" onclick="disturb()">Disturb</button>
 
     </div>
 </body>
 <script src="../numericalIntegration.js"></script>
 <script src="../SliderUtils.js"></script>
 <script src="cartPole.js"></script>
+<script src="cartController.js"></script>
 <script src="balancingPole.js"></script>

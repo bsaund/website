@@ -79,3 +79,15 @@ DIRECT COPY FROM TOP LEVEL STYLE FILE */
     text-decoration: underline;
     border-radius: 0.3em;
 }
+
+.cart {
+    fill: hsl(100, 80%, 35%);
+    fill-opacity: 0.1;
+    stroke: hsl(120, 70%, 20%);
+    stroke-width: 2px;
+}
+
+.nextButton {
+    text-align: right;
+    margin-right: 50px;
+}

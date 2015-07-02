@@ -116,10 +116,10 @@ var poleMass = {
         var r = this.distFromTarget();
         var poleDamping = 100;
 
-        var dr_x = x*(x*dx + y*dy)/(r*r);
-        var dr_y = y*(x*dx + y*dy)/(r*r);
-        var dtheta_x = dx - dr_x;
-        var dtheta_y = dy - dr_y;
+        var dr_x = x*(x*dx + y*dy)/(r*r); //dr in the x direction
+        var dr_y = y*(x*dx + y*dy)/(r*r); //dr in the y direction
+        var dtheta_x = dx - dr_x; //dtheta in the x direction
+        var dtheta_y = dy - dr_y; //dtheta in the y direction
 
         var ddx = 100*x * (this.poleLength - r) - poleDamping*dr_x - this.kd * dtheta_x;
         var ddy = 100*y * (this.poleLength - r) - poleDamping*dr_y - this.kd * dtheta_y + gravity;
@@ -177,7 +177,7 @@ d3.timer(function(t) {
     poleMass.updateCartPos();
     poleMass.redraw();
     cart.redraw();
-    doOtherUpdates();
+    doOtherUpdates(t);
 
 });
 
