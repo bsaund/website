@@ -112,5 +112,9 @@ DIRECT COPY FROM TOP LEVEL STYLE FILE */
 
 .pdColumn1Text {
     text-align: right;
+}
 
+.sliderTitle {
+    font-size: 20px;
+    font-weight: 600;
 }

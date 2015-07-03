@@ -28,7 +28,7 @@ svg {
     margin-left: auto;
     margin-right: auto;
     display: block;
-    border: 2;
+    border: 2px;
 }
 
 #chaser {
@@ -70,8 +70,7 @@ svg {
 .domain {
     fill: none;
     stroke: black;
-    stroke-width;
-    1;
+    stroke-width: 1px;
 }
 
 .axisLabel {
