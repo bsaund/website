@@ -1,11 +1,5 @@
 
 
-#underDampedDescription { display: none; } 
-#overDampedDescription { display: none; }
-#criticallyDampedDescription { display: none; }
-
-#dampingLevelDescription {
-}
 
 #poleMass {
     fill: hsl(220, 85%, 40%);
@@ -14,10 +8,11 @@
 
 #pdColumn1 {
     /*background-repeat: no-repeat;*/
-    width: calc(50% - 450px - 30px);
+    width: calc(50% - 420px);
     float: left;
-    margin-left: 30px;
+    margin-left: 0px;
     margin-top: 20px;
+
     /*text-align: right;*/
     /*margin-right: 50%;*/
     /*text-align: right;*/
@@ -26,15 +21,15 @@
     /*background-repeat: no-repeat;*/
     position:absolute;
     left:50%;
-    width: 900px;
+    width: 800px;
     float: left;
-    margin-left:-450px;
+    margin-left:-400px;
 
     /*align-content: center;*/
 }
 
 #pdColumn3 {
-    width: calc(50% - 450px - 30px);
+    width: calc(50% - 450px);
     float:right;
     margin-right: 30px;
     margin-top: 20px;
@@ -90,4 +85,32 @@ DIRECT COPY FROM TOP LEVEL STYLE FILE */
 .nextButton {
     text-align: right;
     margin-right: 50px;
+}
+
+.whatIsGoingOnButton {
+    background: none;
+    border: none;
+    color: blue;
+    margin-top: 50px;
+}
+
+.textButton {
+    /*background: none;*/
+    /*border: none;*/
+    color: blue;
+}
+
+.whatIsGoingOnButton:hover {
+    color: darkblue;
+}
+
+.whatIsGoingOnText {
+    max-width: 250px;
+    margin-top: 50px;
+
+}
+
+.pdColumn1Text {
+    text-align: right;
+
 }

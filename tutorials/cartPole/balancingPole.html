@@ -38,11 +38,7 @@
             <li><a href="../../code/index.html">code</a></li>
         </ul>
     </div>
-    <div id="pdColumn1">
-        <button type="button" onclick="resetPendulum()">Reset</button> <br><br>
-        <div style="text-align: left" > $\theta = $ <pre style="display: inline"> <b id="ThetaValue"></b></pre></div>
-    </div>
-    </div>
+
     <div id="pdColumn2">
         <div align="center">
             <svg id="panelPtMass" style="width: 800px; height: 400px;">
@@ -67,23 +63,60 @@
 
 
     </div>
+
+    <div id="pdColumn1">
+        <div align="right">
+            <button type="button" onclick="resetPendulum()">Reset</button>
+            <br><br>
+
+            <div> $\theta = $
+                <pre style="display: inline"> <b id="ThetaValue"></b></pre>
+            </div>
+
+            <div id="whatIsGoingOnField" class="whatIsGoingOnText"></div>
+
+            <div id="juicyDetails" style="display:none">The <b>Controller</b> is the rule for the force we apply to the cart.
+                <br>If the pendulum is falling to the right we want to accelerate right. The further from vertical,
+                the faster we want to accelerate.
+                $${\ddot{x}_{cart} = K_p * \theta}$$
+                With just <b>Proportional</b> control we overshoot a lot. The <b>Derivative</b> terms helps to dampen
+                the motion, acting like a viscous fluid.
+                $${\ddot{x}_{cart} = K_p * \theta} - K_d * \dot{x}$$
+            </div>
+
+            <button class="whatIsGoingOnButton" onclick="whatIsGoingOn.update(this)">What's going on?</button>
+        </div>
+    </div>
+
     <div id="pdColumn3">
-        <button type="button" onclick="setExampleParams(12.5, 1.1)">Give me okay values!</button> <br><br>
-        <button type="button" onclick="setExampleParams(40,4)">Give me good values!</button> <br><br>
-        <input id="anyNoiseCheckbox" type="checkbox" onchange="toggles.changeNoise()" autocomplete="off">Add Noise<br>
-        <div id="noiseDiv" style="visibility:hidden; margin-left:30px;">
-            <input id="randomCheckbox" type="checkbox" onchange="toggles.changeNoise()">Random<br>
-            <input id="systematicCheckbox" type="checkbox" onchange="toggles.changeNoise()">Systematic<br>
+        <div id="setValuesDiv" style="visibility:hidden">
+            <button type="button" onclick="setExampleParams(12.5, 1.1)">Give me okay values!</button>
+            <br><br>
+            <button type="button" onclick="setExampleParams(40,4)">Give me good values!</button>
+            <br><br>
+        </div>
+        <div id="addNoiseDiv"style="visibility:hidden">
+            <input id="anyNoiseCheckbox" type="checkbox" onchange="toggles.changeNoise()" autocomplete="off">Add
+            Noise<br>
+
+            <div id="noiseDiv" style="visibility:hidden; margin-left:30px;">
+                <input id="randomCheckbox" type="checkbox" onchange="toggles.changeNoise()">Random<br>
+                <input id="systematicCheckbox" type="checkbox" onchange="toggles.changeNoise()">Systematic<br>
+            </div>
         </div>
         <br>
         <br>
-        <button id="pauseControllerButton" type="button">Pause Controller</button>
-        <button type="button" onclick="disturb()">Disturb</button>
+
+        <div id="extraButtonsDiv"style="visibility:hidden">
+            <button id="pauseControllerButton" type="button">Pause Controller</button>
+            <button type="button" onclick="disturb()">Disturb</button>
+        </div>
 
     </div>
 </body>
 <script src="../numericalIntegration.js"></script>
 <script src="../SliderUtils.js"></script>
+<script src="reusableUI.js"></script>
 <script src="cartPole.js"></script>
 <script src="cartController.js"></script>
 <script src="balancingPole.js"></script>

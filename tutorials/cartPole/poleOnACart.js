@@ -54,3 +54,9 @@ d3.select("#cart").call(
             poleMass.updateCartPos();
         }));
 
+var whatIsGoingOn = new BuildingDialog(["Try to balance the pendulum by dragging around the cart. <br> <br> Adjust gravity and damping using the sliders. Continue to the next page to add a control loop.",
+    document.getElementById("juicyDetails").innerHTML],
+    ["Show me the physics!"],
+"whatIsGoingOnField");
+
+

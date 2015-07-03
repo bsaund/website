@@ -67,6 +67,31 @@ function disturb(){
 
 toggles.setPauseButtonHandlers();
 
+var ef = function() {};
+var makeValuesVisible = function() {makeVisible("setValuesDiv");};
+var makeNoiseVisible = function() {makeVisible("addNoiseDiv");};
+var makeExtrasVisible = function() {makeVisible("extraButtonsDiv");};
+
+var dialogs = {
+
+    descriptions: ["As the pendulum falls the cart accelerates to catch it.  " +
+            "<br><br>Adjust the controller <b>Proportional Gain</b> and <b>Derivative Gain</b> and hit 'reset' to try to balance the pole",
+        "okay, try adding in noise",
+        "<b>Random</b> noise: notice the cart shaking back and forth. The controller randomly gets the value " +
+            "of theta a little bit wrong, so it can not correct perfectly.<br><br>" +
+            "<b>Systematic</b> noise: the controller consistently get theta wrong. It thinks the pendulum is " +
+            "perfectly vertical but it is not so the cart chases it off the screen",
+        "Try hitting it. See if your controller can recover. Use the <b>Disturb</b> button",
+        document.getElementById("juicyDetails").innerHTML],
+    buttonNames: ["I got it balancing!", "Tell me about noise.", "Will it fall over if I hit it?", "What is the 'controller'?"],
+    functions: [makeValuesVisible,makeNoiseVisible, ef, makeExtrasVisible]
+
+}
+
+var whatIsGoingOn = new BuildingDialog(dialogs.descriptions,
+    dialogs.buttonNames,
+    "whatIsGoingOnField", dialogs.functions);
+
 
 
 
